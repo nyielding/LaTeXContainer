@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  vscode:
+    image: texlive/texlive:latest
+    user: "${UID}:${GID}"
+    volumes:
+      - ../:/workspace
+      # SSH directory
+      - ~/.ssh:/home/vscode/.ssh
+      - ~/.ssh:/root/.ssh
+      # Git config
+      - ~/.gitconfig:/home/districter/.gitconfig
+      - ~/.gitconfig:/root/.gitconfig
+    entrypoint: /bin/sh -c "while sleep 1000; do :; done"

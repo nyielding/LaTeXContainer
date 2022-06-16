@@ -1,0 +1,77 @@
+{
+    "name": "latex-docs",
+    "dockerComposeFile": [
+        "docker-compose.yml"
+    ],
+    "service": "vscode",
+    "runServices": [
+        "vscode"
+    ],
+    "shutdownAction": "stopCompose",
+    "workspaceFolder": "/workspace",
+    "postCreateCommand": "",
+    "extensions": [
+        "james-yu.latex-workshop",
+        // Git
+        "eamodio.gitlens",
+        // Other helpers
+        // "shardulm94.trailing-spaces",
+        "stkb.rewrap", // rewrap comments after n characters on one line
+        // Other
+        "vscode-icons-team.vscode-icons",
+        "streetsidesoftware.code-spell-checker",
+        "gruntfuggly.todo-tree",
+    ],
+    "settings": {
+        // General settings
+        "files.eol": "\n",
+        // Latex settings
+        "latex-workshop.chktex.enabled": true,
+        "latex-workshop.latex.clean.subfolder.enabled": true,
+        "latex-workshop.latex.autoClean.run": "onBuilt",
+        "editor.formatOnSave": true,
+        "files.associations": {
+            "*.tex": "latex"
+        },
+        // "latex-workshop.latexindent.args": [
+        //     "-c",
+        //     "%DIR%/",
+        //     "%TMPFILE%",
+        //     "-y=\"defaultIndent: '%INDENT%',onlyOneBackUp: 1\"",
+        // ],
+        // "latex-workshop.chktex.args.active": [
+        "latex-workshop.chktex.exec.args": [
+            "-wall",
+            "-n22",
+            "-n30",
+            "-e16",
+            "-q",
+            "-n8",
+            "-n1"
+        ],
+        "cSpell.enableFiletypes": [
+            "!json",
+            "!jsonc"
+        ],
+        "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|%|\\\\)\\s*($TAGS)\\{*|^\\s*- \\[ \\])",
+        "todo-tree.filtering.includeGlobs": [
+            "**/*.tex"
+        ],
+        "todo-tree.general.tagGroups": {
+            "TODO": [
+                "TODO",
+                "todo",
+            ],
+        },
+        "todo-tree.general.tags": [
+            "BUG",
+            "HACK",
+            "FIXME",
+            "TODO",
+            "XXX",
+            "[ ]",
+            "[x]",
+            "todo"
+          ],
+    }
+}
