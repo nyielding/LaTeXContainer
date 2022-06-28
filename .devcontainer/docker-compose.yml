@@ -2,8 +2,9 @@ version: "3"
 
 services:
   vscode:
-    image: texlive/texlive:latest
-    user: "${UID}:${GID}"
+    build: .
+    image: latexdevcontainer
+    user: 1000:1000
     volumes:
       - ../:/workspace
       # SSH directory
@@ -12,4 +13,4 @@ services:
       # Git config
       - ~/.gitconfig:/home/districter/.gitconfig
       - ~/.gitconfig:/root/.gitconfig
-    entrypoint: /bin/sh -c "while sleep 1000; do :; done"
+    entrypoint: /bin/bash -c "while sleep 1000; do :; done"
